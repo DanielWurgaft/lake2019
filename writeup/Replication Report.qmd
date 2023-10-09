@@ -5,7 +5,7 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
     toc: true
-    toc_depth: 3
+    toc_depth: 4
 ---
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
@@ -16,11 +16,11 @@ format:
 Lake et al. (2019) investigated how humans learn novel concepts and make compositional generalizations. To do so, they used a task in which participants must learn mappings between instructions written in a simple pseudolanguage and sequences of symbols. I chose to replicate experiment 2 from the study, as that experiment provided insight into three inductive biases that guide human generalizations. This experiment is highly relevant for my work as I study the computational basis of concept learning and generalization in humans and ML models, and one of my central interests is understanding what inductive biases allow humans to learn from sparse data and generalize systematically. 
 
 ### Stimuli and Procedures
-#### Main procedures
-The experiment tested the influence of three inductive biases on human generalizations: 1) Mutual exclusivity: the tendancy to associate a novel name with a novel object rather than an object that is already familiar by a different name. 2) One-to-one mappings: the tendancy to map a single input symbol to a single output symbol. 3) Iconic concatenation: the tendancy to concatanate output symbols in the order they were provided in the input. To study these biases, participants were provided with mappings between instructions and colored circles, and were then provided a test instruction and asked to provide its corresponding output sequence of colored circles. 
+#### Main Procedure
+The experiment tested the influence of three inductive biases on human generalizations: 1) Mutual exclusivity: the tendency to associate a novel name with a novel object rather than an object that is already familiar by a different name. 2) One-to-one mappings: the tendency to map a single input symbol to a single output symbol. 3) Iconic concatenation: the tendancy to concatenate output symbols in the order they were provided in the input. To study these biases, participants were provided with mappings between instructions and colored circles, and were then provided a test instruction and asked to provide its corresponding output sequence of colored circles. 
 
 #### Stimuli and Procedures
-There were 14 trials in total. To test each of the biases, three variables were manipulated: whether the test instruction was a novel psuedoword or a composition of the previous instructions, the number of colored circles that can be used to construct the output sequence, and the number of provided mappings between different pseudowords and a single circle (these acted as counter examples to mutual exclusivity). Stimuli in the experiment consisted of 20 pseudowords and 8 colored circles. Each of the 14 trials in experiment 2 were independent, hence, the mappings between colored circles and psuedowords were re-assigned randomly in each trial. Some of the possible challenges for this project include: Programming the experiment interface and randomizing the instruction-circle mappings in each trial and replicating the trial sequence as accurately as possible (details may require contacting authors).
+There were 14 trials in total. To test each of the biases, three variables were manipulated: whether the test instruction was a novel psuedoword or a composition of the previous instructions, the number of colored circles that can be used to construct the output sequence, and the number of provided mappings between different pseudowords and a single circle (these acted as counter examples to mutual exclusivity). Stimuli in the experiment consisted of 20 pseudowords and 8 colored circles. Each of the 14 trials in experiment 2 were independent, hence, the mappings between colored circles and psuedowords were re-assigned randomly in each trial. Some of the possible challenges for this project include: Programming the experiment interface and randomizing the instruction-circle mappings in each trial, and replicating the trial sequence as accurately as possible (details may require contacting authors).
 
 ### Links to Repository and Original Paper:
 Link to the repository: https://github.com/psych251/lake2019/tree/main
