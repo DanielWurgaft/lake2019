@@ -1,6 +1,7 @@
 ---
-title: "Replication of Study X by Sample & Sample (20xx, Psychological Science)"
-author: "Replication Author[s] (contact information)"
+title: "Replication of Experiment 2 in "Human few-shot learning of compositional instructions"
+ by Brenden M. Lake, Tal Linzen, & Marco Baroni (2019, Proceedings of the 41st Annual Conference of the Cognitive Science Society)"
+author: "Daniel Wurgaft (wurgaft@stanford.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -12,8 +13,9 @@ format:
 
 ## Introduction
 
-[No abstract is needed.]  Each replication project will have a straightforward, no frills report of the study and results.  These reports will be publicly available as supplementary material for the aggregate report(s) of the project as a whole.  Also, to maximize project integrity, the intro and methods will be written and critiqued in advance of data collection.  Introductions can be just 1-2 paragraphs clarifying the main idea of the original study, the target finding for replication, and any other essential information.  It will NOT have a literature review -- that is in the original publication. You can write both the introduction and the methods in past tense.  
 
+Link to the repository: https://github.com/psych251/lake2019/tree/main
+Link to original paper: https://github.com/psych251/lake2019/blob/main/original_paper/1901.04587.pdf
 
 ## Methods
 
