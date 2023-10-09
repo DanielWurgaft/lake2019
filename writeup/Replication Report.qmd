@@ -1,6 +1,5 @@
 ---
-title: "Replication of Experiment 2 in "Human few-shot learning of compositional instructions"
- by Brenden M. Lake, Tal Linzen, & Marco Baroni (2019, Proceedings of the 41st Annual Conference of the Cognitive Science Society)"
+title: "Replication of Experiment 2 in Human few-shot learning of compositional instructions by Brenden M. Lake, Tal Linzen, & Marco Baroni (2019, Proceedings of the 41st Annual Conference of the Cognitive Science Society)"
 author: "Daniel Wurgaft (wurgaft@stanford.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
@@ -17,7 +16,7 @@ format:
 Lake et al. (2019) investigated how humans learn novel concepts and make compositional generalizations. To do so, they used a task in which participants must learn mappings between instructions written in a simple pseudolanguage and sequences of symbols. I chose to replicate experiment 2 from the study, as that experiment provided insight into three inductive biases that guide human generalizations. This experiment is highly relevant for my work as I study the computational basis of concept learning and generalization in humans and ML models, and one of my central interests is understanding what inductive biases allow humans to learn from sparse data and generalize systematically. 
 
 ### Stimuli and Procedures
-#### Main 
+#### Main procedures
 The experiment tested the influence of three inductive biases on human generalizations: 1) Mutual exclusivity: the tendancy to associate a novel name with a novel object rather than an object that is already familiar by a different name. 2) One-to-one mappings: the tendancy to map a single input symbol to a single output symbol. 3) Iconic concatenation: the tendancy to concatanate output symbols in the order they were provided in the input. To study these biases, participants were provided with mappings between instructions and colored circles, and were then provided a test instruction and asked to provide its corresponding output sequence of colored circles. 
 
 #### Stimuli and Procedures
