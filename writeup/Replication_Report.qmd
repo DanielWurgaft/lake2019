@@ -1,5 +1,5 @@
 ---
-title: "Replication of Experiment 2 in Human few-shot learning of compositional instructions by Brenden M. Lake, Tal Linzen, & Marco Baroni (2019, Proceedings of the 41st Annual Conference of the Cognitive Science Society)"
+title: "Replication of Experiment 2 in Lake et al. (2019, CogSci)"
 author: "Daniel Wurgaft (wurgaft@stanford.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
@@ -9,108 +9,231 @@ format:
 
 ## Introduction
 
-### Justification for Choice of Experiment
+### Choice of Experiment
 
 Lake et al. (2019) investigated how humans learn novel concepts and generalize compositionally. To do so, they used a task in which participants must learn mappings between instructions written in a simple pseudo-language and sequences of symbols. I chose to replicate experiment 2 from the study, as that experiment provided insight into three inductive biases that guide human generalizations. This experiment is highly relevant for my work, as I study the computational basis of concept learning and generalization in humans and ML models, and one of my central interests is understanding what inductive biases allow humans to learn from sparse data and generalize systematically.
 
-### Stimuli and Procedures
-
-#### Main Procedure
+### Description of Experiment
 
 The experiment tested the influence of three inductive biases on human generalizations: 
 
-1) Mutual exclusivity: the tendency to associate a novel name with a novel object rather than an object that is already familiar by a different name. 
+1) Mutual Exclusivity (ME): the tendency to associate a novel name with a novel object rather than an object that is already familiar by a different name. 
 
 2) One-to-one mappings: the tendency to map a single input symbol to a single output symbol. 
 
 3) Iconic concatenation: the tendency to concatenate output symbols in the order they were provided in the input. 
 
-To study these biases, participants were provided with mappings between instructions and colored circles, and were then provided a test instruction and asked to provide its corresponding output sequence of colored circles.
+To study these biases, participants were provided with mappings between instructions and colored circles. They were then provided with a test instruction and asked to answer with its corresponding output sequence of colored circles.
 
-#### Stimuli and Procedures
+### Challenges
 
-There were 14 trials in total. To test each of the biases, three variables were manipulated: whether the test instruction was a novel pseudoword or a composition of the previous instructions, the number of colored circles that can be used to construct the output sequence, and the provided mappings between pseudo-words and colored circles. Stimuli in the experiment consisted of 20 pseudo-words and 8 colored circles. Each of the 14 trials in experiment 2 were independent, hence, the mappings between colored circles and pseudo-words were re-assigned randomly in each trial. Some of the possible challenges for this project include: Programming the experiment interface and randomizing the word-circle mappings in each trial, and replicating the trial sequence as accurately as possible (details may require contacting authors).
+Some of the possible challenges for this project include: Programming the experiment interface and randomizing the word-circle mappings in each trial, and replicating the trial sequence as accurately as possible.
 
-### Links to Repository and Original Paper:
+### Links to Repository and Original Paper
 
-Link to the repository: https://github.com/psych251/lake2019/tree/main
+[Link to the repository](https://github.com/psych251/lake2019/tree/main)
 
-Link to original paper: https://github.com/psych251/lake2019/blob/main/original_paper/1901.04587.pdf
+[Link to original paper](https://github.com/psych251/lake2019/blob/main/original_paper/1901.04587.pdf)
+
 
 ## Methods
 
-### Power Analysis
-
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size. Considerations of feasibility for selecting planned sample size.
 
 ### Planned Sample
 
-Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any.
+Given that the original experiment had only 28 participants and the experiment takes between 2.5-4 minutes (based on pilot data), a sample size of 2.5 times the original sample can be recruited. Hence, the planned sample size will be 70 participants. 
 
 ### Materials
 
-All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely. Or, quote directly and just point out exceptions to what was described in the original article.
+Stimuli and instructions followed those of the original paper:
+
+> "...the pseudoword and colors were re-randomized for each trial from a larger set of 20 possible pseudowords and 8 colors. To
+emphasize the inductive nature of the task, participants were
+told that there were multiple reasonable answers for a given
+trial and were instructed to provide a reasonable guess."
+
 
 ### Procedure
 
-Can quote directly from original article - just put the text in quotations and note that this was followed precisely. Or, quote directly and just point out exceptions to what was described in the original article.
+The procedure followed precisely that of the original paper: 
+
+> "14 independent trials
+that evaluated biases under different circumstances. Each trial
+provided a set of study instructions (input-output mappings)
+and asked participants to make a judgment about a single new
+test instruction... The trials were structured as follows. Six trials pertain
+to ME and whether participants are sensitive to counterevidence and the number of options in the response pool... Three trials pertain to iconic concatenation and how participants concatenate
+instructions together in the absence of demonstrations... Three additional trials pertain to how
+people weigh ME versus one-to-one in judgments that necessarily violate one of these biases... Finally, two catch trials queried a test instruction that was identical to a study instruction."
+
+The study and test instructions used for each trial described above adhered to the structure provided under "Additional nuance in inductive biases" in the [data release](https://cims.nyu.edu/~brenden/supplemental/BIML-supp-results/sysgen.html) for lake et al. (2023), which uses the same human data as Lake et al. (2019).
+
 
 ### Analysis Plan
 
-Can also quote directly, though it is less often spelled out effectively for an analysis strategy section. The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.
+As in the original paper, exclusion was based on missing a catch trial.
 
-**Clarify key analysis of interest here** You can also pre-specify additional analyses you plan to do.
+**Key analysis of interest:** A logistic mixed model was fit to data from mutual exclusivity trials, with number of counter examples (different pseudowords matched to the same color) and pool size as fixed effects, and response consistency with mutual exclusivity as the response variable.  
+
+As in the original paper, consistency with iconic concatenation across the three trials testing it was computed, as well as number of choices consistent with mutual exclusivity compared with one-to-one mappings in the three trials contrasting these biases.
+
+
 
 ### Differences from Original Study
 
-Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study. The goal, of course, is to minimize those differences, but differences will inevitably occur. Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect.
+Given that the original instructions provided to participants before and during trials were not released, the instructions provided may vary from the original study. 
 
-### Methods Addendum (Post Data Collection)
+With regards to trial presentation, in the original study:
 
-You can comment this section out prior to final report with data collection.
+> The response interface had a pool of possible output symbols which could be clicked or dragged to the response array.
+The circles could be rearranged within the array or cleared
+with a reset button.
 
-#### Actual Sample
+In this version, circles could only be added to the response array by clicking, and participants could additionally use a reset button or the backspace keyboard key (which was explicitly mentioned to be usable) to arrange their response. 
 
-Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+Furthermore, only nine out of the required 20 pseudonames used could be retrieved based on materials, hence 11 other pseudonames that were not mentioned in the paper had to be utilized. Additionally, colors do not match with the eight colors used in the paper.
 
-#### Differences from pre-data collection methods plan
+Finally, the trial order used was randomized for each participant, yet it is unclear whether trial order is randomized in the original experiment.  
 
-Any differences from what was described as the original plan, or "none".
+<!-- #### Actual Sample -->
 
-## Results
+<!-- Sample size, demographics, data exclusions based on rules spelled out in analysis plan -->
+
+<!-- #### Differences from pre-data collection methods plan -->
+
+<!-- Any differences from what was described as the original plan, or "none". -->
+
+## Results (Only pilot results so far)
 
 ### Data preparation
 
 Data preparation following the analysis plan.
 
-```{r include=F}
-### Data Preparation
-
+```{r, include=TRUE, message=FALSE}
 #### Load Relevant Libraries and Functions
+library(here)
+library(lme4)
+library(tidyverse)
 
 #### Import data
+df_raw <- read_csv(here("data/learning-instructions.csv"))
 
 #### Data exclusion / filtering
+df_catch = df_raw %>% filter(type == "catch trial") %>% 
+                      filter(pass == FALSE) 
 
-#### Prepare data for analysis - create columns etc.
+df_proc <- df_raw %>% 
+            # exclude participants who failed a catch trial
+            filter(!(run_id %in% unique(df_catch$run_id))) 
+
+#### Prepare data for analysis
+
+# Make a dataframe for each trial type
+
+## Mutual exclusivity trials
+df_ME = df_proc %>% filter(type=="ME trial") %>% mutate(follows_ME = case_when(
+  .$example_color == .$response ~ 0,
+  .$example_color != .$response ~ 1,
+  .default = NA)) %>% select(c(run_id, pool_size, num_counters, follows_ME))
+
+## iconic concatenation trials
+df_concat = df_proc %>% filter(type=="concat trial") %>% mutate(
+  concat_type = case_when(
+        .$target == paste0(.$example2_name, " ", .$example1_name," ", .$example1_name) ~ "multiple repetitions concat",
+        .$examples == paste0(.$example1_name, " ", .$example1_color, ", ",.$example2_name, " ", .$example2_color) ~ "simple concat",
+       .default = "Multiple colors concat")) %>% mutate(follows_iconicConcat = case_when(
+  (.$concat_type == "simple concat" & .$response == paste0(.$example1_color,  .$example2_color)) ~ 1,
+    (.$concat_type == "multiple repetitions concat" & .$response == paste0(.$example2_color, .$example1_color,  .$example1_color)) ~ 1,
+  (.$concat_type == "Multiple colors concat" & .$response == paste0(.$example1_color, .$example1_color, .$example1_color,  .$example2_color,  .$example2_color)) ~ 1,
+  .default = 0
+))
+
+## ME vs. one to one trials
+df_ME_vs_OneToOne = df_proc %>% filter(type=="ME_vs_OneToOne trial")  %>%
+  mutate(follows_ME = case_when(
+  nchar(.$response) > 1 ~ 1,
+  .default = 0 
+))
 ```
 
 ### Confirmatory analysis
 
-The analyses as specified in the analysis plan.
+#### Mutual Exclusivity: 
 
-*Side-by-side graph with original graph is ideal here*
+```{r, include=TRUE, message=FALSE}
+df_ME_summarized = df_ME %>% group_by(pool_size, num_counters) %>% summarize(percent_follows_ME = mean(follows_ME)*100,
+                                                                             percent_se = sd(follows_ME)*100 / length(follows_ME))
 
-### Exploratory analyses
+group.colors <- c("2" = "#666BFF", "6" = "#F8766D")
 
-Any follow-up analyses desired (not required).
+ggplot(data = df_ME_summarized, aes(x = num_counters, y = percent_follows_ME, fill = as.factor(pool_size))) +
+  geom_bar(stat = "identity", position = position_dodge(), alpha = 0.75) + xlab("Number of counter examples") + ylab("Mutual exclusivity strength") + labs(fill="Pool size") +  scale_fill_manual(values=group.colors) +  geom_errorbar(aes(ymin=percent_follows_ME-percent_se, ymax=percent_follows_ME+percent_se), width=.2,
+                 position=position_dodge(.9))
+```
 
-## Discussion
+Original figure from Lake et al. (2019):
 
-### Summary of Replication Attempt
+```{r, echo = FALSE, out.width = "500px"}
+knitr::include_graphics("Replication_Report_files/figure-html/fig4_original_paper.png")
+```
 
-Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.
 
-### Commentary
+Logistic mixed model:
 
-Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt. None of these need to be long.
+```{r, include=TRUE, message=FALSE}
+model_fit <- glmer(follows_ME ~ pool_size + num_counters + (1 | run_id), data = df_ME,  family = binomial)
+summary(model_fit)
+```
+
+#### Iconic Concatenation: 
+
+```{r, include=TRUE, message=FALSE}
+df_concat_summarize = df_concat %>%  group_by(run_id) %>% summarize(percent_follows_iconicConcat = mean(follows_iconicConcat)*100)
+
+
+ggplot(data = df_concat_summarize, aes(x = as.factor(run_id), y = percent_follows_iconicConcat)) +
+  geom_bar(stat = "identity",fill="#666BFF", position = position_dodge(), alpha = 0.75) + xlab("Participant ID") + ylab("Iconic concatenation strength") 
+```
+Iconic concatenation strength (across three trials):
+
+```{r}
+paste0(mean(df_concat_summarize$percent_follows_iconicConcat), "%")
+```
+
+Iconic concatenation strength in original paper: 93.9% (across three trials, 62/66 responses)
+
+#### Mutual Exclusivity vs. One-to-One: 
+
+```{r, include=TRUE, message=FALSE}
+df_ME_vs_OneToOne_summarize = df_ME_vs_OneToOne %>% group_by(run_id) %>%  summarize(percent_follows_ME = mean(follows_ME)*100,
+                                                                                    percent_se = sd(follows_ME) / length(follows_ME))
+
+
+ggplot(data = df_ME_vs_OneToOne_summarize, aes(x = as.factor(run_id), y = percent_follows_ME)) +
+  geom_bar(stat = "identity", fill="#666BFF",position = position_dodge(), alpha = 0.75) + xlab("Participant ID") + ylab("Mutual exclusivity (chosen over one-to-one)") 
+```
+
+Mutual exclusivity over one-to-one strength (across three trials):
+
+```{r}
+paste0(mean(df_ME_vs_OneToOne_summarize$percent_follows_ME), "%")
+```
+
+Mutual exclusivity over one-to-one strength in original paper: 50% (across three trials, 33/66 responses)
+
+
+<!-- *Side-by-side graph with original graph is ideal here* -->
+
+<!-- ### Exploratory analyses -->
+
+<!-- Any follow-up analyses desired (not required). -->
+
+<!-- ## Discussion -->
+
+<!-- ### Summary of Replication Attempt -->
+
+<!-- Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result. -->
+
+<!-- ### Commentary -->
+
+<!-- Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt. None of these need to be long. -->
