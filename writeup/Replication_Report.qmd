@@ -45,11 +45,11 @@ Given that the original experiment had only 28 participants and the experiment i
 
 ### Materials
 
-Stimuli and instructions followed precisely those of the original paper:
+Stimuli and instructions followed those of the original paper:
 
-> " Participants were informed that
+> "Participants were informed that
 the study investigated how people learn input-output associations, and that they would be asked to learn a set of commands
-and their corresponding outputs...the pseudoword and colors were re-randomized for each trial from a larger set of 20 possible pseudowords and 8 colors. To
+and their corresponding outputs... the pseudoword and colors were re-randomized for each trial from a larger set of 20 possible pseudowords and 8 colors. To
 emphasize the inductive nature of the task, participants were
 told that there were multiple reasonable answers for a given
 trial and were instructed to provide a reasonable guess."
@@ -73,19 +73,21 @@ The study and test instructions used for each trial described above adhered to t
 
 ### Analysis Plan
 
-Exclusion criteria for participation in the study included: more than 10 previous submissions and above 95% approval rate on Prolific, fluency in English (given that the task was provided in english), and answering "Yes" or "Rather not say" to the Prolific screening question "Do you experience colourblindness?" (given that distinguishing between colors is a crucial part of the task).
+Screening criteria used to determine eligibility for participation in the study included: more than 10 previous submissions and above 95% approval rate on Prolific, fluency in English (given that the task was provided in English), and answering "No, I have no issues seeing colours" to the Prolific screening question "Do you experience colourblindness?" (given that distinguishing between colors is a crucial part of the task).
 
-An exclusion criteria for analysis was based on missing a catch trial.
+As in the original study, participants were excluded from the analysis if they answered incorrectly on one or more catch trials.
 
-**Key analysis of interest:** A logistic mixed model was fit to data from mutual exclusivity trials, with number of counter examples (different pseudowords matched to the same color) and pool size as fixed effects, and response consistency with mutual exclusivity (defined as any sequence that is not similar to the example colored circle) as the response variable.  
+**Key analysis of interest:** A logistic mixed model was fit to data from mutual exclusivity trials, with number of counter examples (different pseudowords matched to the same color) and pool size as fixed effects, and response consistency with mutual exclusivity (defined as any sequence that is not similar to the colored circle provided in the study instructions) as the response variable.  
 
 As in the original paper, consistency with iconic concatenation across the three trials testing it was computed, as well as number of choices consistent with one-to-one mappings over mutual exclusivity in the three trials contrasting these biases.
 
-Exploratory analyses: As in the original paper, percentage of agreement with ME in the no counter evidence, pool size = 2 trial (simplest ME condition) will be examined both when ME is defined as a single circle of another color, and when it is defined as any sequence that is not similar to the colored circle provided in the study example.
+Exploratory analyses: As in the original paper, percentage of agreement with ME in the no counter evidence, pool size = 2 trial (simplest ME condition) will be examined both when ME is defined as a single circle of another color, and when it is defined as any sequence not similar to the colored circle provided in the study instructions.
 
 ### Differences from Original Study
 
-Whereas in the original study circles could be added to the response array by clicking or dragging, in this version, circles could only be added to the response array by clicking. The response array also allowed participants to rearrange circles inside the response array or clear it with a reset button, whereas in this version participants could use a delete button or a reset button. Finally, circle colors do not match with the colors used in the paper, yet no control for colors was mentioned in the original study, and the per-trial randomization.
+Whereas in the original study circles could be added to the response array by clicking or dragging, in this version, circles could only be added to the response array by clicking. The interface of the original study also allowed participants to rearrange circles inside the response array or clear the array with a reset button, whereas in this version participants could use a delete button or a reset button. Additionally, circle colors do not match the colors used in the original paper, yet no particular control for the colors used was mentioned in the original study, and the task is intentionally designed such that color-pseudoword assignments are arbitrary (given that they are re-randomized in each trial), hence this difference is unlikely to impact the final results.
+
+Finally, there were also several differences related to data collection: In the original experiment, data was collected using Mechanical Turk and psiTurk, and participants were only recruited from the United States. In this version, data was collected using Prolific, and participants were not screened for eligibility based on country, but based on fluency in English, previous number of submissions and approval rating on Prolific (as detailed above), and reporting no colorblindness.
 
 
 <!-- #### Actual Sample -->
@@ -221,13 +223,13 @@ One-to-one over mutual exclusivity strength in original paper: 50% (across three
 df_ME_simplest_condition = df_ME %>% filter(pool_size == 2, num_counters == 0)
 ```
 
-Response is single circle of another color:
+Response is single circle of another color (compared to color provided in study instructions):
 
 ```{r}
 paste0(nrow(df_ME_simplest_condition %>% filter(follows_ME_simple_definition == 1)), "/", nrow(df_ME_simplest_condition)," participants: ", nrow(df_ME_simplest_condition %>% filter(follows_ME_simple_definition == 1))*100/nrow(df_ME_simplest_condition), "%")
 ```
 
-Response is any sequence not similar to the example colored circle:
+Response is any sequence not similar to the colored circle provided in the study instructions:
 
 ```{r}
 paste0(nrow(df_ME_simplest_condition %>% filter(follows_ME == 1)), "/", nrow(df_ME_simplest_condition)," participants: ", nrow(df_ME_simplest_condition %>% filter(follows_ME == 1))*100/nrow(df_ME_simplest_condition), "%")
@@ -249,3 +251,15 @@ In original paper: 18/22 (81.8%) and 20/22 (90.9%), respectively.
 <!-- ### Commentary -->
 
 <!-- Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt. None of these need to be long. -->
+
+## References
+
+| Lake, B. M., & Baroni, M. (2023). Human-like systematic generalization through 
+|     a meta-learning neural network. Nature, 623(7985), 115–121. 
+|     https://doi.org/10.1038/s41586-023-06668-3 
+
+| Lake, B. M., Linzen, T., & Baroni, M. (2019). Human few-shot learning of compositional instructions.
+|     learning of compositional instructions. In A. K. Goel, C. M. Seifert, 
+|     & C. Freksa (Eds.), proceedings of the 41st annual conference of the 
+|     cognitive science society (pp. 611–617). Cognitive Science Society. 
+|     Montreal, QB: Cognitive Science Society.
