@@ -41,13 +41,15 @@ Some of the possible challenges for this project include: Programming the experi
 
 ### Planned Sample
 
-Given that the original experiment had only 28 participants and the experiment takes between 2.5-4 minutes (based on pilot data), a sample size of 2.5 times the original sample can be recruited. Hence, the planned sample size will be 70 participants. 
+Given that the original experiment had only 28 participants and the experiment is relatively short, a sample size of 2.5 times the original sample can be recruited. Hence, the planned sample size will be 70 participants. 
 
 ### Materials
 
-Stimuli and instructions followed those of the original paper:
+Stimuli and instructions followed precisely those of the original paper:
 
-> "...the pseudoword and colors were re-randomized for each trial from a larger set of 20 possible pseudowords and 8 colors. To
+> " Participants were informed that
+the study investigated how people learn input-output associations, and that they would be asked to learn a set of commands
+and their corresponding outputs...the pseudoword and colors were re-randomized for each trial from a larger set of 20 possible pseudowords and 8 colors. To
 emphasize the inductive nature of the task, participants were
 told that there were multiple reasonable answers for a given
 trial and were instructed to provide a reasonable guess."
@@ -71,29 +73,20 @@ The study and test instructions used for each trial described above adhered to t
 
 ### Analysis Plan
 
-As in the original paper, exclusion was based on missing a catch trial.
+Exclusion criteria for participation in the study included: more than 10 previous submissions and above 95% approval rate on Prolific, fluency in English (given that the task was provided in english), and answering "Yes" or "Rather not say" to the Prolific screening question "Do you experience colourblindness?" (given that distinguishing between colors is a crucial part of the task).
 
-**Key analysis of interest:** A logistic mixed model was fit to data from mutual exclusivity trials, with number of counter examples (different pseudowords matched to the same color) and pool size as fixed effects, and response consistency with mutual exclusivity as the response variable.  
+An exclusion criteria for analysis was based on missing a catch trial.
 
-As in the original paper, consistency with iconic concatenation across the three trials testing it was computed, as well as number of choices consistent with mutual exclusivity compared with one-to-one mappings in the three trials contrasting these biases.
+**Key analysis of interest:** A logistic mixed model was fit to data from mutual exclusivity trials, with number of counter examples (different pseudowords matched to the same color) and pool size as fixed effects, and response consistency with mutual exclusivity (defined as any sequence that is not similar to the example colored circle) as the response variable.  
 
+As in the original paper, consistency with iconic concatenation across the three trials testing it was computed, as well as number of choices consistent with one-to-one mappings over mutual exclusivity in the three trials contrasting these biases.
 
+Exploratory analyses: As in the original paper, percentage of agreement with ME in the no counter evidence, pool size = 2 trial (simplest ME condition) will be examined both when ME is defined as a single circle of another color, and when it is defined as any sequence that is not similar to the colored circle provided in the study example.
 
 ### Differences from Original Study
 
-Given that the original instructions provided to participants before and during trials were not released, the instructions provided may vary from the original study. 
+Whereas in the original study circles could be added to the response array by clicking or dragging, in this version, circles could only be added to the response array by clicking. The response array also allowed participants to rearrange circles inside the response array or clear it with a reset button, whereas in this version participants could use a delete button or a reset button. Finally, circle colors do not match with the colors used in the paper, yet no control for colors was mentioned in the original study, and the per-trial randomization.
 
-With regards to trial presentation, in the original study:
-
-> The response interface had a pool of possible output symbols which could be clicked or dragged to the response array.
-The circles could be rearranged within the array or cleared
-with a reset button.
-
-In this version, circles could only be added to the response array by clicking, and participants could additionally use a reset button or the backspace keyboard key (which was explicitly mentioned to be usable) to arrange their response. 
-
-Furthermore, only nine out of the required 20 pseudonames used could be retrieved based on materials, hence 11 other pseudonames that were not mentioned in the paper had to be utilized. Additionally, colors do not match with the eight colors used in the paper.
-
-Finally, the trial order used was randomized for each participant, yet it is unclear whether trial order is randomized in the original experiment.  
 
 <!-- #### Actual Sample -->
 
@@ -116,7 +109,7 @@ library(lme4)
 library(tidyverse)
 
 #### Import data
-df_raw <- read_csv(here("data/learning-instructions.csv"))
+df_raw <- read_csv(here("data/pilot/learning-instructions-pilot-anon.csv"))
 
 #### Data exclusion / filtering
 df_catch = df_raw %>% filter(type == "catch trial") %>% 
@@ -124,7 +117,7 @@ df_catch = df_raw %>% filter(type == "catch trial") %>%
 
 df_proc <- df_raw %>% 
             # exclude participants who failed a catch trial
-            filter(!(run_id %in% unique(df_catch$run_id))) 
+            filter(!(pid %in% unique(df_catch$pid))) 
 
 #### Prepare data for analysis
 
@@ -134,31 +127,33 @@ df_proc <- df_raw %>%
 df_ME = df_proc %>% filter(type=="ME trial") %>% mutate(follows_ME = case_when(
   .$example_color == .$response ~ 0,
   .$example_color != .$response ~ 1,
-  .default = NA)) %>% select(c(run_id, pool_size, num_counters, follows_ME))
+  .default = NA),
+  follows_ME_simple_definition = case_when(
+    .$example_color != .$response & nchar(.$response) == 1 ~ 1,
+    .default = 0
+  )) %>% select(c(pid, response, example_color, pool_size, num_counters, follows_ME, follows_ME_simple_definition))  
+
 
 ## iconic concatenation trials
-df_concat = df_proc %>% filter(type=="concat trial") %>% mutate(
-  concat_type = case_when(
-        .$target == paste0(.$example2_name, " ", .$example1_name," ", .$example1_name) ~ "multiple repetitions concat",
-        .$examples == paste0(.$example1_name, " ", .$example1_color, ", ",.$example2_name, " ", .$example2_color) ~ "simple concat",
-       .default = "Multiple colors concat")) %>% mutate(follows_iconicConcat = case_when(
-  (.$concat_type == "simple concat" & .$response == paste0(.$example1_color,  .$example2_color)) ~ 1,
-    (.$concat_type == "multiple repetitions concat" & .$response == paste0(.$example2_color, .$example1_color,  .$example1_color)) ~ 1,
-  (.$concat_type == "Multiple colors concat" & .$response == paste0(.$example1_color, .$example1_color, .$example1_color,  .$example2_color,  .$example2_color)) ~ 1,
+df_concat = df_proc %>% filter(grepl("concat trial", type)) %>% mutate(follows_iconicConcat = case_when(
+  (.$type == "simple concat trial" & .$response == paste0(.$example1_color,  .$example2_color)) ~ 1,
+    (.$type == "doubleInTest concat trial" & .$response == paste0(.$example2_color, .$example1_color,  .$example1_color)) ~ 1,
+  (.$type == "multipleCircles concat trial" & .$response == paste0(.$example1_color, .$example1_color, .$example1_color,  .$example2_color,  .$example2_color)) ~ 1,
   .default = 0
-))
+)) %>% select(pid, type, target, examples, response, follows_iconicConcat)
 
 ## ME vs. one to one trials
-df_ME_vs_OneToOne = df_proc %>% filter(type=="ME_vs_OneToOne trial")  %>%
-  mutate(follows_ME = case_when(
-  nchar(.$response) > 1 ~ 1,
-  .default = 0 
-))
+df_ME_vs_OneToOne = df_proc %>% filter(grepl("ME_vs_OneToOne trial", type)) %>%
+  mutate(follows_1to1 = case_when(
+  sapply(strsplit(.$target, " "), length) == nchar(.$response) ~ 1,
+  .default = 0)) %>% select( pid, type, target, examples, response, follows_1to1, type)
 ```
 
 ### Confirmatory analysis
 
 #### Mutual Exclusivity: 
+
+##### Main figure:
 
 ```{r, include=TRUE, message=FALSE}
 df_ME_summarized = df_ME %>% group_by(pool_size, num_counters) %>% summarize(percent_follows_ME = mean(follows_ME)*100,
@@ -174,25 +169,26 @@ ggplot(data = df_ME_summarized, aes(x = num_counters, y = percent_follows_ME, fi
 Original figure from Lake et al. (2019):
 
 ```{r, echo = FALSE, out.width = "500px"}
-knitr::include_graphics("Replication_Report_files/figure-html/fig4_original_paper.png")
+knitr::include_graphics(here("writeup/fig4_original_paper.png"))
 ```
 
-
-Logistic mixed model:
+##### Logistic mixed model:
 
 ```{r, include=TRUE, message=FALSE}
-model_fit <- glmer(follows_ME ~ pool_size + num_counters + (1 | run_id), data = df_ME,  family = binomial)
+model_fit <- glmer(follows_ME ~ pool_size + num_counters + (1 | pid), data = df_ME,  family = binomial)
 summary(model_fit)
 ```
+
 
 #### Iconic Concatenation: 
 
 ```{r, include=TRUE, message=FALSE}
-df_concat_summarize = df_concat %>%  group_by(run_id) %>% summarize(percent_follows_iconicConcat = mean(follows_iconicConcat)*100)
+df_concat_summarize = df_concat %>%  group_by(pid) %>% summarize(percent_follows_iconicConcat = mean(follows_iconicConcat)*100)
 
 
-ggplot(data = df_concat_summarize, aes(x = as.factor(run_id), y = percent_follows_iconicConcat)) +
-  geom_bar(stat = "identity",fill="#666BFF", position = position_dodge(), alpha = 0.75) + xlab("Participant ID") + ylab("Iconic concatenation strength") 
+ggplot(df_concat, aes(x=follows_iconicConcat, color=type)) +
+  geom_histogram() + xlab("Follows Iconic Concatenation") + ylab("Count") + 
+  scale_color_manual(labels = c("Study:dax⚫,lug🔵.Test: lug dax dax", "Study:dax⚫⚫⚫,lug🔵🔵.Test: dax lug", "Study: dax⚫,lug🔵.Test: dax lug"), values=c("blue", "red", "lightgreen"))
 ```
 Iconic concatenation strength (across three trials):
 
@@ -205,24 +201,40 @@ Iconic concatenation strength in original paper: 93.9% (across three trials, 62/
 #### Mutual Exclusivity vs. One-to-One: 
 
 ```{r, include=TRUE, message=FALSE}
-df_ME_vs_OneToOne_summarize = df_ME_vs_OneToOne %>% group_by(run_id) %>%  summarize(percent_follows_ME = mean(follows_ME)*100,
-                                                                                    percent_se = sd(follows_ME) / length(follows_ME))
-
-
-ggplot(data = df_ME_vs_OneToOne_summarize, aes(x = as.factor(run_id), y = percent_follows_ME)) +
-  geom_bar(stat = "identity", fill="#666BFF",position = position_dodge(), alpha = 0.75) + xlab("Participant ID") + ylab("Mutual exclusivity (chosen over one-to-one)") 
+ggplot(df_ME_vs_OneToOne, aes(x=follows_1to1*100, color=type)) +
+  geom_histogram() + xlab("Follows 1-to-1") + ylab("Count") + 
+  scale_color_manual(labels = c("Study:dax⚫,lug🟡.Test: dax wif lug", "Study:dax⚫,lug🟡.Test: dax wif", "Study:dax⚫,lug🟡.Test: wif"), values=c("blue", "red", "lightgreen"))
 ```
 
 Mutual exclusivity over one-to-one strength (across three trials):
 
 ```{r}
-paste0(mean(df_ME_vs_OneToOne_summarize$percent_follows_ME), "%")
+paste0(mean(df_ME_vs_OneToOne$follows_1to1)*100, "%")
 ```
 
-Mutual exclusivity over one-to-one strength in original paper: 50% (across three trials, 33/66 responses)
+One-to-one over mutual exclusivity strength in original paper: 50% (across three trials, 33/66 responses)
 
 
-<!-- *Side-by-side graph with original graph is ideal here* -->
+### Exploratory analysis: Simplest ME condition (pool size = 2, no counter evidence):
+
+```{r}
+df_ME_simplest_condition = df_ME %>% filter(pool_size == 2, num_counters == 0)
+```
+
+Response is single circle of another color:
+
+```{r}
+paste0(nrow(df_ME_simplest_condition %>% filter(follows_ME_simple_definition == 1)), "/", nrow(df_ME_simplest_condition)," participants: ", nrow(df_ME_simplest_condition %>% filter(follows_ME_simple_definition == 1))*100/nrow(df_ME_simplest_condition), "%")
+```
+
+Response is any sequence not similar to the example colored circle:
+
+```{r}
+paste0(nrow(df_ME_simplest_condition %>% filter(follows_ME == 1)), "/", nrow(df_ME_simplest_condition)," participants: ", nrow(df_ME_simplest_condition %>% filter(follows_ME == 1))*100/nrow(df_ME_simplest_condition), "%")
+```
+
+In original paper: 18/22 (81.8%) and 20/22 (90.9%), respectively.
+
 
 <!-- ### Exploratory analyses -->
 

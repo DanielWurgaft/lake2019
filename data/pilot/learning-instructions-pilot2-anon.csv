@@ -1,0 +1,64 @@
+view_history,rt,trial_type,trial_index,time_elapsed,internal_node_id,condition,response,type,example_name,example_color,example,choices,pass,question_order,examples,target,num_counters,pool_size,example1_name,example1_color,example2_name,example2_color,pid
+"[{""page_index"":0,""viewing_time"":5215},{""page_index"":1,""viewing_time"":4541},{""page_index"":2,""viewing_time"":3757},{""page_index"":3,""viewing_time"":18461},{""page_index"":4,""viewing_time"":18915},{""page_index"":5,""viewing_time"":14409},{""page_index"":6,""viewing_time"":7308},{""page_index"":7,""viewing_time"":9141}]",81750,instructions,0,81763,0.0-0.0-0.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,38079,ButtonsToText,1,119847,0.0-0.0-1.0,1,🟢🟢🟢🟢,catch trial,gnog,🟠,gnog 🟠,"[""🔴"",""🟠"",""🟡"",""🟢""]",FALSE,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,31822,survey-multi-choice,2,151674,0.0-0.0-2.0,1,"{""commands"":""Nonsense words"",""outputs"":""Colored circles"",""independence"":""They may, but this should be ignored. Word and color meaning changes on every trial"",""main task"":""Given a set of commands and their corresponding outputs, produce the output for a novel command""}",NA,NA,NA,NA,NA,NA,"[0,1,2,3]",NA,NA,NA,NA,NA,NA,NA,NA,1
+"[{""page_index"":0,""viewing_time"":2151}]",2151,instructions,3,153833,0.0-1.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,16275,ButtonsToText,4,170112,0.0-2.0,1,🔴,ME trial,NA,⚫,NA,"[""⚫"",""🔴""]",NA,NA,kiki ⚫,zun,0,2,NA,NA,NA,NA,1
+NA,13916,ButtonsToText,5,184032,0.0-3.0,1,🔴🟣🟣,doubleInTest concat trial,NA,NA,NA,"[""🟣"",""🔴""]",NA,NA,"zup 🟣, rish 🔴",rish zup zup,NA,NA,zup,🟣,rish,🔴,1
+NA,6218,ButtonsToText,6,190254,0.0-4.0,1,🔵⚫,simple concat trial,NA,NA,NA,"[""🔵"",""⚫""]",NA,NA,"wif 🔵, cag ⚫",wif cag,NA,NA,wif,🔵,cag,⚫,1
+NA,5427,ButtonsToText,7,195685,0.0-5.0,1,🟡,catch trial,hed,🟡,hed 🟡,"[""🟡"",""🟠"",""🟢"",""🟤"",""🟣"",""🔴""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,9318,ButtonsToText,8,205007,0.0-6.0,1,🟤,ME trial,NA,🔵,NA,"[""🔵"",""🔴"",""🟤"",""🟢"",""🟠"",""🟡""]",NA,NA,jeg 🔵,fep,0,6,NA,NA,NA,NA,1
+NA,7467,ButtonsToText,9,212478,0.0-7.0,1,🟣🟣🟣🟢🟢,multipleCircles concat trial,NA,NA,NA,"[""🟣"",""🟢""]",NA,NA,"hed 🟣🟣🟣, blicket 🟢🟢",hed blicket,NA,NA,hed,🟣,blicket,🟢,1
+NA,6416,ButtonsToText,10,218897,0.0-8.0,1,🔵,ME trial,NA,🟠,NA,"[""🟠"",""🔵""]",NA,NA,"blicket 🟠, tufa 🟠",kiki,1,2,NA,NA,NA,NA,1
+NA,14703,ButtonsToText,11,233603,0.0-9.0,1,🟡,ME trial,NA,🟢,NA,"[""🟢"",""🔵"",""🟡"",""🟠"",""⚫"",""🟣""]",NA,NA,"hed 🟢, zun 🟢",zup,1,6,NA,NA,NA,NA,1
+NA,8894,ButtonsToText,12,242501,0.0-10.0,1,🟡,"ME_vs_OneToOne trial, simple",NA,NA,NA,"[""⚫"",""🟡""]",NA,NA,"blicket ⚫, lomp 🟡",kiki,NA,NA,blicket,⚫,lomp,🟡,1
+NA,8166,ButtonsToText,13,250672,0.0-11.0,1,🟠,ME trial,NA,🟤,NA,"[""🟤"",""🔵"",""🟠"",""🔴"",""⚫"",""🟣""]",NA,NA,"hed 🟤, dax 🟤, wif 🟤",rish,2,6,NA,NA,NA,NA,1
+NA,4805,ButtonsToText,14,255480,0.0-12.0,1,🔵,catch trial,rab,🔵,rab 🔵,"[""🔵"",""🟡"",""🟣"",""🟢"",""🟠"",""🔴""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,8009,ButtonsToText,15,263493,0.0-13.0,1,🟠🟠🔵,"ME_vs_OneToOne trial, concat",NA,NA,NA,"[""🟠"",""🔵""]",NA,NA,"hed 🟠, lomp 🔵",hed rab lomp,NA,NA,hed,🟠,lomp,🔵,1
+NA,6560,ButtonsToText,16,270057,0.0-14.0,1,🔵,ME trial,NA,🟣,NA,"[""🟣"",""🔵""]",NA,NA,"wif 🟣, hed 🟣, ibb 🟣",kiki,2,2,NA,NA,NA,NA,1
+NA,7370,ButtonsToText,17,277431,0.0-15.0,1,🟢🟢,"ME_vs_OneToOne trial, oneDropped",NA,NA,NA,"[""🟢"",""🔵""]",NA,NA,"jeg 🟢, dax 🔵",jeg cag,NA,NA,jeg,🟢,dax,🔵,1
+NA,115115,survey-text,18,392562,0.0-16.0,1,"{""survey"":""I used the corresponding circles to the examples given, when I could. Otherwise I would use a different colour circle - ie. to represent a new word.""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,10064,survey-multi-choice,19,402629,0.0-17.0,1,"{""effort"":""Moderate to high effort""}",NA,NA,NA,NA,NA,NA,[0],NA,NA,NA,NA,NA,NA,NA,NA,1
+"[{""page_index"":0,""viewing_time"":13717}]",13718,instructions,20,416354,0.0-18.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+"[{""page_index"":0,""viewing_time"":1948},{""page_index"":1,""viewing_time"":2650},{""page_index"":2,""viewing_time"":2830},{""page_index"":3,""viewing_time"":7029},{""page_index"":4,""viewing_time"":4698},{""page_index"":5,""viewing_time"":7665},{""page_index"":6,""viewing_time"":3689},{""page_index"":7,""viewing_time"":5745}]",36253,instructions,0,36261,0.0-0.0-0.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,24844,ButtonsToText,1,61113,0.0-0.0-1.0,1,🟢🟢🟢🟢,practice trial,NA,NA,NA,"[""🔴"",""🟠"",""🟡"",""🟢""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,23815,survey-multi-choice,2,84932,0.0-0.0-2.0,1,"{""commands"":""Nonsense words"",""outputs"":""Colored circles"",""independence"":""They may, but this should be ignored. Word and color meaning changes on every trial"",""main task"":""Given a set of commands and their corresponding outputs, produce the output for a novel command""}",NA,NA,NA,NA,NA,NA,"[0,1,2,3]",NA,NA,NA,NA,NA,NA,NA,NA,3
+"[{""page_index"":0,""viewing_time"":2096}]",2097,instructions,3,87034,0.0-1.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,17420,ButtonsToText,4,104457,0.0-2.0,1,⚫,"ME_vs_OneToOne trial, oneDropped",NA,NA,NA,"[""⚫"",""🟡""]",NA,NA,"zup ⚫, fep 🟡",zup cag,NA,NA,zup,⚫,fep,🟡,3
+NA,20385,ButtonsToText,5,124845,0.0-3.0,1,⚫⚫⚫,ME trial,NA,⚫,NA,"[""⚫"",""🟢"",""🟣"",""🟤"",""🟠"",""🔴""]",NA,NA,"wif ⚫, hed ⚫",yim,1,6,NA,NA,NA,NA,3
+NA,7951,ButtonsToText,6,132799,0.0-4.0,1,⚫,ME trial,NA,🟣,NA,"[""🟣"",""🟤"",""⚫"",""🔴"",""🟠"",""🟢""]",NA,NA,"zun 🟣, yim 🟣, fep 🟣",hed,2,6,NA,NA,NA,NA,3
+NA,7865,ButtonsToText,7,140667,0.0-5.0,1,🔴🔴🔴🔵🔵,multipleCircles concat trial,NA,NA,NA,"[""🔴"",""🔵""]",NA,NA,"fom 🔴🔴🔴, kiki 🔵🔵",fom kiki,NA,NA,fom,🔴,kiki,🔵,3
+NA,9512,ButtonsToText,8,150183,0.0-6.0,1,🟢,catch trial,lomp,🟢,lomp 🟢,"[""🟢"",""🟤"",""🟣"",""🔴"",""🔵"",""🟡""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,11707,ButtonsToText,9,161893,0.0-7.0,1,🟢🟤🟢🟤,"ME_vs_OneToOne trial, concat",NA,NA,NA,"[""🟢"",""🟤""]",NA,NA,"kiki 🟢, wif 🟤",kiki zup wif,NA,NA,kiki,🟢,wif,🟤,3
+NA,7485,ButtonsToText,10,169380,0.0-8.0,1,🟤🟤🟤,"ME_vs_OneToOne trial, simple",NA,NA,NA,"[""🟢"",""🟤""]",NA,NA,"lug 🟢, yim 🟤",fep,NA,NA,lug,🟢,yim,🟤,3
+NA,15291,ButtonsToText,11,184674,0.0-9.0,1,🟡🟡🟡,ME trial,NA,🟡,NA,"[""🟡"",""🟣""]",NA,NA,"lomp 🟡, blicket 🟡",gazzer,1,2,NA,NA,NA,NA,3
+NA,5932,ButtonsToText,12,190608,0.0-10.0,1,🔴🟤🟤,doubleInTest concat trial,NA,NA,NA,"[""🟤"",""🔴""]",NA,NA,"ibb 🟤, zup 🔴",zup ibb ibb,NA,NA,ibb,🟤,zup,🔴,3
+NA,6174,ButtonsToText,13,196787,0.0-11.0,1,🔴,ME trial,NA,🟤,NA,"[""🟤"",""🟡"",""🟢"",""🟠"",""🟣"",""🔴""]",NA,NA,lug 🟤,yim,0,6,NA,NA,NA,NA,3
+NA,12023,ButtonsToText,14,208812,0.0-12.0,1,🔴🔵,ME trial,NA,🔵,NA,"[""🔵"",""🔴""]",NA,NA,rab 🔵,blicket,0,2,NA,NA,NA,NA,3
+NA,5948,ButtonsToText,15,214762,0.0-13.0,1,🟡🔴,simple concat trial,NA,NA,NA,"[""🟡"",""🔴""]",NA,NA,"fep 🟡, blicket 🔴",fep blicket,NA,NA,fep,🟡,blicket,🔴,3
+NA,6324,ButtonsToText,16,221089,0.0-14.0,1,🟡,catch trial,zun,🟡,zun 🟡,"[""🟡"",""🟣"",""⚫"",""🟤"",""🟠"",""🟢""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,13829,ButtonsToText,17,234920,0.0-15.0,1,🟡,ME trial,NA,🔴,NA,"[""🔴"",""🟡""]",NA,NA,"tufa 🔴, fom 🔴, cag 🔴",jeg,2,2,NA,NA,NA,NA,3
+NA,41833,survey-text,18,276764,0.0-16.0,1,"{""strategy"":""I used the words an colours given. However on some of them i was confused as there was given colours and words but then the word they asked for didnt have a colour.""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,6096,survey-multi-choice,19,282862,0.0-17.0,1,"{""effort"":""Moderate effort""}",NA,NA,NA,NA,NA,NA,[0],NA,NA,NA,NA,NA,NA,NA,NA,3
+"[{""page_index"":0,""viewing_time"":44656}]",44656,instructions,20,327521,0.0-18.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+"[{""page_index"":0,""viewing_time"":18073},{""page_index"":1,""viewing_time"":3858},{""page_index"":2,""viewing_time"":4177},{""page_index"":3,""viewing_time"":8777},{""page_index"":4,""viewing_time"":7014},{""page_index"":5,""viewing_time"":11156},{""page_index"":6,""viewing_time"":18475},{""page_index"":7,""viewing_time"":11175}]",82705,instructions,0,82711,0.0-0.0-0.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,36781,ButtonsToText,1,119495,0.0-0.0-1.0,1,🟢🟢🟢🟢,catch trial,gnog,🟠,gnog 🟠,"[""🔴"",""🟠"",""🟡"",""🟢""]",FALSE,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,33036,survey-multi-choice,2,152534,0.0-0.0-2.0,1,"{""commands"":""Nonsense words"",""outputs"":""Colored circles"",""independence"":""They may, but this should be ignored. Word and color meaning changes on every trial"",""main task"":""Given a set of commands and their corresponding outputs, produce the output for a novel command""}",NA,NA,NA,NA,NA,NA,"[0,1,2,3]",NA,NA,NA,NA,NA,NA,NA,NA,2
+"[{""page_index"":0,""viewing_time"":4474}]",4475,instructions,3,157012,0.0-1.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,21217,ButtonsToText,4,178233,0.0-2.0,1,🔴,catch trial,hed,🔴,hed 🔴,"[""🔴"",""🟢"",""🟤"",""🟣"",""⚫"",""🟠""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,20744,ButtonsToText,5,198981,0.0-3.0,1,🟢,ME trial,NA,🟤,NA,"[""🟤"",""🟣"",""🔵"",""⚫"",""🟢"",""🟡""]",NA,NA,"lomp 🟤, ibb 🟤, kiki 🟤",zup,2,6,NA,NA,NA,NA,2
+NA,6808,ButtonsToText,6,205791,0.0-4.0,1,🔴🔴🔴⚫⚫,multipleCircles concat trial,NA,NA,NA,"[""🔴"",""⚫""]",NA,NA,"fom 🔴🔴🔴, blicket ⚫⚫",fom blicket,NA,NA,fom,🔴,blicket,⚫,2
+NA,3828,ButtonsToText,7,209621,0.0-5.0,1,🟣,ME trial,NA,🟢,NA,"[""🟢"",""⚫"",""🟣"",""🟤"",""🟡"",""🔴""]",NA,NA,rab 🟢,cag,0,6,NA,NA,NA,NA,2
+NA,7176,ButtonsToText,8,216799,0.0-6.0,1,🟤🟤🟣🟣,"ME_vs_OneToOne trial, simple",NA,NA,NA,"[""🟤"",""🟣""]",NA,NA,"ibb 🟤, kiki 🟣",cag,NA,NA,ibb,🟤,kiki,🟣,2
+NA,46701,ButtonsToText,9,263502,0.0-7.0,1,🟤🟣,simple concat trial,NA,NA,NA,"[""🟤"",""🟣""]",NA,NA,"hed 🟤, jeg 🟣",hed jeg,NA,NA,hed,🟤,jeg,🟣,2
+NA,3885,ButtonsToText,10,267389,0.0-8.0,1,🔴🟠🟠,doubleInTest concat trial,NA,NA,NA,"[""🟠"",""🔴""]",NA,NA,"rish 🟠, pab 🔴",pab rish rish,NA,NA,rish,🟠,pab,🔴,2
+NA,9985,ButtonsToText,11,277376,0.0-9.0,1,🟡🔵🔵,"ME_vs_OneToOne trial, oneDropped",NA,NA,NA,"[""🟡"",""🔵""]",NA,NA,"gazzer 🟡, zun 🔵",gazzer fep,NA,NA,gazzer,🟡,zun,🔵,2
+NA,3284,ButtonsToText,12,280662,0.0-10.0,1,🟡,ME trial,NA,🟢,NA,"[""🟢"",""🟡""]",NA,NA,"zup 🟢, dax 🟢, cag 🟢",zun,2,2,NA,NA,NA,NA,2
+NA,2970,ButtonsToText,13,283634,0.0-11.0,1,🔵,ME trial,NA,🔴,NA,"[""🔴"",""🟢"",""🟤"",""🔵"",""⚫"",""🟡""]",NA,NA,"jeg 🔴, dax 🔴",lomp,1,6,NA,NA,NA,NA,2
+NA,2179,ButtonsToText,14,285816,0.0-12.0,1,🟣,ME trial,NA,🔵,NA,"[""🔵"",""🟣""]",NA,NA,cag 🔵,yim,0,2,NA,NA,NA,NA,2
+NA,6309,ButtonsToText,15,292126,0.0-13.0,1,⚫⚫⚫🔴,"ME_vs_OneToOne trial, concat",NA,NA,NA,"[""⚫"",""🔴""]",NA,NA,"hed ⚫, rish 🔴",hed pab rish,NA,NA,hed,⚫,rish,🔴,2
+NA,2911,ButtonsToText,16,295040,0.0-14.0,1,🟢,ME trial,NA,🟣,NA,"[""🟣"",""🟢""]",NA,NA,"rab 🟣, lomp 🟣",ibb,1,2,NA,NA,NA,NA,2
+NA,24091,ButtonsToText,17,319134,0.0-15.0,1,🟤,catch trial,yim,🟤,yim 🟤,"[""🟤"",""🟠"",""🔴"",""🟢"",""⚫"",""🟡""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,96265,survey-text,18,415407,0.0-16.0,1,"{""survey"":""when there wasn't any color next to the word, i was just picking the color that was different from the other words ""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,5492,survey-multi-choice,19,420901,0.0-17.0,1,"{""effort"":""Moderate effort""}",NA,NA,NA,NA,NA,NA,[0],NA,NA,NA,NA,NA,NA,NA,NA,2
+"[{""page_index"":0,""viewing_time"":16460}]",16461,instructions,20,437367,0.0-18.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2

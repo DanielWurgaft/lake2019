@@ -1,0 +1,81 @@
+view_history,rt,trial_type,trial_index,time_elapsed,internal_node_id,condition,response,type,example_name,example_color,example,choices,pass,example1_name,example1_color,example2_name,example2_color,examples,target,num_counters,pool_size,question_order,pid
+"[{""page_index"":0,""viewing_time"":1968},{""page_index"":1,""viewing_time"":4644},{""page_index"":2,""viewing_time"":9450},{""page_index"":3,""viewing_time"":13606},{""page_index"":4,""viewing_time"":9855},{""page_index"":5,""viewing_time"":6010},{""page_index"":6,""viewing_time"":548}]",46081,instructions,0,46091,0.0-0.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,4
+NA,17509,ButtonsToText,1,63603,0.0-1.0,1,🟠,catch trial,gnog,🟠,gnog 🟠,"[""🔴"",""🟠"",""🟡"",""🟢""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,4
+"[{""page_index"":0,""viewing_time"":6546}]",6546,instructions,2,70150,0.0-2.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,4
+NA,8361,ButtonsToText,3,78512,0.0-3.0,1,🔴🟠,simple concat trial,NA,NA,NA,"[""🔴"",""🟠""]",NA,fep,🔴,blicket,🟠,"fep 🔴, blicket 🟠",fep blicket,NA,NA,NA,4
+NA,14860,ButtonsToText,4,93374,0.0-4.0,1,🟠,ME trial,NA,🔴,NA,"[""🔴"",""🟡"",""🟤"",""🟣"",""🟠"",""⚫""]",NA,NA,NA,NA,NA,"sark 🔴, yart 🔴",virt,1,6,NA,4
+NA,32808,ButtonsToText,5,126184,0.0-5.0,1,🔵⚫,"ME_vs_OneToOne trial, oneDropped",NA,NA,NA,"[""🔵"",""⚫""]",NA,fep,🔵,arn,⚫,"fep 🔵, arn ⚫",fep tufa,NA,NA,NA,4
+NA,4602,ButtonsToText,6,130788,0.0-6.0,1,⚫🟠,"ME_vs_OneToOne trial, concat",NA,NA,NA,"[""⚫"",""🟠""]",NA,rop,⚫,nep,🟠,"rop ⚫, nep 🟠",rop jom nep,NA,NA,NA,4
+NA,19049,ButtonsToText,7,149838,0.0-7.0,1,🔵🔵🔵,ME trial,NA,🔵,NA,"[""🔵"",""🟡""]",NA,NA,NA,NA,NA,"virt 🔵, rop 🔵, nep 🔵",fep,2,2,NA,4
+NA,3093,ButtonsToText,8,152933,0.0-8.0,1,🟤,catch trial,kiki,🟤,kiki 🟤,"[""🟤"",""🟢"",""🟡"",""🟣"",""🟠"",""🔴""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,4
+NA,11183,ButtonsToText,9,164117,0.0-9.0,1,🔴🟡🔴,"ME_vs_OneToOne trial, simple",NA,NA,NA,"[""🔴"",""🟡""]",NA,blicket,🔴,tufa,🟡,"blicket 🔴, tufa 🟡",dax,NA,NA,NA,4
+NA,7666,ButtonsToText,10,171785,0.0-10.0,1,⚫,catch trial,arn,⚫,arn ⚫,"[""⚫"",""🟤"",""🔵"",""🟢"",""🟡"",""🟣""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,4
+NA,8880,ButtonsToText,11,180667,0.0-11.0,1,🔴🔴🔴🔵🔵,multipleCircles concat trial,NA,NA,NA,"[""🔴"",""🔵""]",NA,zup,🔴,keam,🔵,"zup 🔴🔴🔴, keam 🔵🔵",zup keam,NA,NA,NA,4
+NA,4717,ButtonsToText,12,185385,0.0-12.0,1,🟤,ME trial,NA,🔴,NA,"[""🔴"",""🟤""]",NA,NA,NA,NA,NA,"tufa 🔴, rop 🔴",beex,1,2,NA,4
+NA,5628,ButtonsToText,13,191015,0.0-13.0,1,🔵🔴🔴,doubleInTest concat trial,NA,NA,NA,"[""🔴"",""🔵""]",NA,fep,🔴,arn,🔵,"fep 🔴, arn 🔵",arn fep fep,NA,NA,NA,4
+NA,7008,ButtonsToText,14,198025,0.0-14.0,1,🟡,ME trial,NA,⚫,NA,"[""⚫"",""🟤"",""🟣"",""🟡"",""🔴"",""🟢""]",NA,NA,NA,NA,NA,"fep ⚫, jom ⚫, lug ⚫",nep,2,6,NA,4
+NA,3612,ButtonsToText,15,201639,0.0-15.0,1,🟤,ME trial,NA,🟣,NA,"[""🟣"",""🟤""]",NA,NA,NA,NA,NA,fep 🟣,jom,0,2,NA,4
+NA,7957,ButtonsToText,16,209597,0.0-16.0,1,🟤,ME trial,NA,🟡,NA,"[""🟡"",""🔵"",""🔴"",""🟢"",""🟠"",""🟤""]",NA,NA,NA,NA,NA,tufa 🟡,beex,0,6,NA,4
+NA,17496,survey-text,17,227099,0.0-17.0,1,"{""survey"":"" ""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,4
+NA,6427,survey-multi-choice,18,233528,0.0-18.0,1,"{""effort"":""Little to moderate effort""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,[0],4
+"[{""page_index"":0,""viewing_time"":1290}]",1290,instructions,19,234821,0.0-19.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,4
+"[{""page_index"":0,""viewing_time"":1384},{""page_index"":1,""viewing_time"":2387},{""page_index"":2,""viewing_time"":9779},{""page_index"":3,""viewing_time"":6067},{""page_index"":4,""viewing_time"":3446},{""page_index"":3,""viewing_time"":154},{""page_index"":2,""viewing_time"":511},{""page_index"":1,""viewing_time"":2652},{""page_index"":2,""viewing_time"":5518},{""page_index"":3,""viewing_time"":6351},{""page_index"":4,""viewing_time"":4484},{""page_index"":5,""viewing_time"":2598},{""page_index"":6,""viewing_time"":5126}]",50458,instructions,0,50461,0.0-0.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,11802,ButtonsToText,1,62265,0.0-1.0,1,🟠,catch trial,gnog,🟠,gnog 🟠,"[""🔴"",""🟠"",""🟡"",""🟢""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+"[{""page_index"":0,""viewing_time"":11031}]",11031,instructions,2,73297,0.0-2.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,125008,ButtonsToText,3,198306,0.0-3.0,1,🔴,ME trial,NA,🔴,NA,"[""🔴"",""⚫"",""🟢"",""🟡"",""🟣"",""🔵""]",NA,NA,NA,NA,NA,"jom 🔴, gazzer 🔴, kiki 🔴",keam,2,6,NA,1
+NA,40284,ButtonsToText,4,238592,0.0-4.0,1,🔴,ME trial,NA,🟠,NA,"[""🟠"",""🟤"",""⚫"",""🔴"",""🔵"",""🟢""]",NA,NA,NA,NA,NA,tufa 🟠,yart,0,6,NA,1
+NA,14626,ButtonsToText,5,253220,0.0-5.0,1,🟡🟡,"ME_vs_OneToOne trial, oneDropped",NA,NA,NA,"[""🟡"",""🟣""]",NA,wif,🟡,virt,🟣,"wif 🟡, virt 🟣",wif muv,NA,NA,NA,1
+NA,3927,ButtonsToText,6,257150,0.0-6.0,1,🟤🟢,simple concat trial,NA,NA,NA,"[""🟤"",""🟢""]",NA,gazzer,🟤,kiki,🟢,"gazzer 🟤, kiki 🟢",gazzer kiki,NA,NA,NA,1
+NA,2601,ButtonsToText,7,259752,0.0-7.0,1,🟡,ME trial,NA,⚫,NA,"[""⚫"",""🟡""]",NA,NA,NA,NA,NA,"yart ⚫, keam ⚫",beex,1,2,NA,1
+NA,18495,ButtonsToText,8,278249,0.0-8.0,1,🟡,ME trial,NA,🟡,NA,"[""🟡"",""🔵""]",NA,NA,NA,NA,NA,"rop 🟡, zup 🟡, blicket 🟡",kiki,2,2,NA,1
+NA,3178,ButtonsToText,9,281430,0.0-9.0,1,🟡,ME trial,NA,⚫,NA,"[""⚫"",""🟡""]",NA,NA,NA,NA,NA,keam ⚫,zup,0,2,NA,1
+NA,2561,ButtonsToText,10,283993,0.0-10.0,1,🔴,"ME_vs_OneToOne trial, simple",NA,NA,NA,"[""⚫"",""🔴""]",NA,enst,⚫,jom,🔴,"enst ⚫, jom 🔴",gazzer,NA,NA,NA,1
+NA,4345,ButtonsToText,11,288339,0.0-11.0,1,🔴🟠🟠,doubleInTest concat trial,NA,NA,NA,"[""🟠"",""🔴""]",NA,jom,🟠,zup,🔴,"jom 🟠, zup 🔴",zup jom jom,NA,NA,NA,1
+NA,7459,ButtonsToText,12,295800,0.0-12.0,1,🟡,ME trial,NA,🟣,NA,"[""🟣"",""🟤"",""🟡"",""🔴"",""⚫"",""🟠""]",NA,NA,NA,NA,NA,"lug 🟣, yart 🟣",tufa,1,6,NA,1
+NA,10420,ButtonsToText,13,306222,0.0-13.0,1,🟤🟤🟡,"ME_vs_OneToOne trial, concat",NA,NA,NA,"[""🟤"",""🟡""]",NA,beex,🟤,jom,🟡,"beex 🟤, jom 🟡",beex arn jom,NA,NA,NA,1
+NA,2350,ButtonsToText,14,308574,0.0-14.0,1,🟣,catch trial,rop,🟣,rop 🟣,"[""🟣"",""🟡"",""🟠"",""🔵"",""🟢"",""🟤""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,1859,ButtonsToText,15,310435,0.0-15.0,1,🟡,catch trial,fep,🟡,fep 🟡,"[""🟡"",""🔵"",""🔴"",""🟣"",""⚫"",""🟤""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,5058,ButtonsToText,16,315494,0.0-16.0,1,⚫⚫⚫🟢🟢,multipleCircles concat trial,NA,NA,NA,"[""⚫"",""🟢""]",NA,zup,⚫,kiki,🟢,"zup ⚫⚫⚫, kiki 🟢🟢",zup kiki,NA,NA,NA,1
+NA,13184,survey-text,17,328684,0.0-17.0,1,"{""survey"":""Decorating words and colors of the circles.""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+NA,4380,survey-multi-choice,18,333065,0.0-18.0,1,"{""effort"":""Moderate to high effort""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,[0],1
+"[{""page_index"":0,""viewing_time"":1065}]",1065,instructions,19,334133,0.0-19.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,1
+"[{""page_index"":0,""viewing_time"":3874},{""page_index"":1,""viewing_time"":7679},{""page_index"":2,""viewing_time"":48497},{""page_index"":3,""viewing_time"":30950},{""page_index"":4,""viewing_time"":7079},{""page_index"":5,""viewing_time"":6824},{""page_index"":6,""viewing_time"":8829}]",113735,instructions,0,113781,0.0-0.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,30587,ButtonsToText,1,144381,0.0-1.0,1,🟠,catch trial,gnog,🟠,gnog 🟠,"[""🔴"",""🟠"",""🟡"",""🟢""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+"[{""page_index"":0,""viewing_time"":9270}]",9271,instructions,2,153656,0.0-2.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,14244,ButtonsToText,3,167909,0.0-3.0,1,⚫,ME trial,NA,⚫,NA,"[""⚫"",""🟢""]",NA,NA,NA,NA,NA,beex ⚫,arn,0,2,NA,2
+NA,18368,ButtonsToText,4,186289,0.0-4.0,1,🔴🟡🟡,doubleInTest concat trial,NA,NA,NA,"[""🟡"",""🔴""]",NA,lug,🟡,gazzer,🔴,"lug 🟡, gazzer 🔴",gazzer lug lug,NA,NA,NA,2
+NA,13602,ButtonsToText,5,199901,0.0-5.0,1,🔴,ME trial,NA,🟤,NA,"[""🟤"",""🔴""]",NA,NA,NA,NA,NA,"muv 🟤, arn 🟤, jom 🟤",tufa,2,2,NA,2
+NA,9774,ButtonsToText,6,209682,0.0-6.0,1,🟢,"ME_vs_OneToOne trial, oneDropped",NA,NA,NA,"[""🟢"",""🟤""]",NA,yart,🟢,gazzer,🟤,"yart 🟢, gazzer 🟤",yart arn,NA,NA,NA,2
+NA,10133,ButtonsToText,7,219823,0.0-7.0,1,🟢🟢🟢🟤🟤,multipleCircles concat trial,NA,NA,NA,"[""🟢"",""🟤""]",NA,muv,🟢,yart,🟤,"muv 🟢🟢🟢, yart 🟤🟤",muv yart,NA,NA,NA,2
+NA,12497,ButtonsToText,8,232329,0.0-8.0,1,⚫🟣,"ME_vs_OneToOne trial, concat",NA,NA,NA,"[""⚫"",""🟣""]",NA,zup,⚫,rop,🟣,"zup ⚫, rop 🟣",zup blicket rop,NA,NA,NA,2
+NA,20685,ButtonsToText,9,253024,0.0-9.0,1,🟣🟤🟢⚫🔴,ME trial,NA,🟠,NA,"[""🟠"",""🟣"",""🟤"",""🟢"",""⚫"",""🔴""]",NA,NA,NA,NA,NA,"kiki 🟠, zup 🟠",beex,1,6,NA,2
+NA,9880,ButtonsToText,10,262919,0.0-10.0,1,🟠🟤⚫🟢🔴,ME trial,NA,🔵,NA,"[""🔵"",""🟠"",""🟤"",""⚫"",""🟢"",""🔴""]",NA,NA,NA,NA,NA,zup 🔵,tufa,0,6,NA,2
+NA,28415,ButtonsToText,11,291345,0.0-11.0,1,🟠🔴,"ME_vs_OneToOne trial, simple",NA,NA,NA,"[""🟠"",""🔴""]",NA,lug,🟠,kiki,🔴,"lug 🟠, kiki 🔴",beex,NA,NA,NA,2
+NA,5910,ButtonsToText,12,297266,0.0-12.0,1,🔵,catch trial,dax,🔵,dax 🔵,"[""🔵"",""🟠"",""⚫"",""🟡"",""🟤"",""🟣""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,6089,ButtonsToText,13,303361,0.0-13.0,1,🟡⚫,simple concat trial,NA,NA,NA,"[""🟡"",""⚫""]",NA,yart,🟡,beex,⚫,"yart 🟡, beex ⚫",yart beex,NA,NA,NA,2
+NA,5082,ButtonsToText,14,308452,0.0-14.0,1,🔵,catch trial,lug,🔵,lug 🔵,"[""🔵"",""🟠"",""🟤"",""🟣"",""🟢"",""🟡""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,10256,ButtonsToText,15,318716,0.0-15.0,1,🟣🟤🟠🔵⚫,ME trial,NA,🟢,NA,"[""🟢"",""🟣"",""🟤"",""🟠"",""🔵"",""⚫""]",NA,NA,NA,NA,NA,"lug 🟢, wif 🟢, rop 🟢",gazzer,2,6,NA,2
+NA,4815,ButtonsToText,16,323540,0.0-16.0,1,🟢,ME trial,NA,🟤,NA,"[""🟤"",""🟢""]",NA,NA,NA,NA,NA,"wif 🟤, jom 🟤",blicket,1,2,NA,2
+NA,58955,survey-text,17,382530,0.0-17.0,1,"{""survey"":""User all color circles when the specific color is not fit in.""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+NA,13425,survey-multi-choice,18,395965,0.0-18.0,1,"{""effort"":""Little to moderate effort""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,[0],2
+"[{""page_index"":0,""viewing_time"":8567}]",8570,instructions,19,404547,0.0-19.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2
+"[{""page_index"":0,""viewing_time"":15777},{""page_index"":1,""viewing_time"":3787},{""page_index"":2,""viewing_time"":13861},{""page_index"":3,""viewing_time"":58228},{""page_index"":4,""viewing_time"":6510},{""page_index"":5,""viewing_time"":5591},{""page_index"":6,""viewing_time"":6361}]",110115,instructions,0,110119,0.0-0.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,11812,ButtonsToText,1,121934,0.0-1.0,1,🟠,catch trial,gnog,🟠,gnog 🟠,"[""🔴"",""🟠"",""🟡"",""🟢""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+"[{""page_index"":0,""viewing_time"":3129}]",3129,instructions,2,125064,0.0-2.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,16251,ButtonsToText,3,141316,0.0-3.0,1,🔵,ME trial,NA,🟤,NA,"[""🟤"",""🔵""]",NA,NA,NA,NA,NA,"keam 🟤, blicket 🟤, zup 🟤",virt,2,2,NA,3
+NA,11174,ButtonsToText,4,152491,0.0-4.0,1,🟡🟠🟠,doubleInTest concat trial,NA,NA,NA,"[""🟠"",""🟡""]",NA,yart,🟠,virt,🟡,"yart 🟠, virt 🟡",virt yart yart,NA,NA,NA,3
+NA,9312,ButtonsToText,5,161804,0.0-5.0,1,🟢,"ME_vs_OneToOne trial, simple",NA,NA,NA,"[""🔴"",""🟢""]",NA,dax,🔴,zup,🟢,"dax 🔴, zup 🟢",fep,NA,NA,NA,3
+NA,10120,ButtonsToText,6,171926,0.0-6.0,1,🔴🔴🔴🔵🔵,multipleCircles concat trial,NA,NA,NA,"[""🔴"",""🔵""]",NA,tufa,🔴,lug,🔵,"tufa 🔴🔴🔴, lug 🔵🔵",tufa lug,NA,NA,NA,3
+NA,4138,ButtonsToText,7,176066,0.0-7.0,1,⚫,catch trial,jom,⚫,jom ⚫,"[""⚫"",""🟢"",""🔵"",""🔴"",""🟣"",""🟡""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,12270,ButtonsToText,8,188337,0.0-8.0,1,⚫🟤🟤,ME trial,NA,⚫,NA,"[""⚫"",""🟤""]",NA,NA,NA,NA,NA,"yart ⚫, gazzer ⚫",arn,1,2,NA,3
+NA,21934,ButtonsToText,9,210273,0.0-9.0,1,🟤,ME trial,NA,🟡,NA,"[""🟡"",""🔵"",""🔴"",""🟠"",""🟤"",""🟢""]",NA,NA,NA,NA,NA,"virt 🟡, tufa 🟡, rop 🟡",sark,2,6,NA,3
+NA,8383,ButtonsToText,10,218658,0.0-10.0,1,🟠,ME trial,NA,⚫,NA,"[""⚫"",""🟠"",""🟣"",""🔴"",""🔵"",""🟢""]",NA,NA,NA,NA,NA,"sark ⚫, lug ⚫",blicket,1,6,NA,3
+NA,5430,ButtonsToText,11,224089,0.0-11.0,1,🟢⚫,simple concat trial,NA,NA,NA,"[""🟢"",""⚫""]",NA,kiki,🟢,virt,⚫,"kiki 🟢, virt ⚫",kiki virt,NA,NA,NA,3
+NA,3244,ButtonsToText,12,227334,0.0-12.0,1,🟤,ME trial,NA,🟤,NA,"[""🟤"",""⚫""]",NA,NA,NA,NA,NA,tufa 🟤,arn,0,2,NA,3
+NA,11295,ButtonsToText,13,238631,0.0-13.0,1,🟡🟡🟢🟢,"ME_vs_OneToOne trial, concat",NA,NA,NA,"[""🟡"",""🟢""]",NA,kiki,🟡,wif,🟢,"kiki 🟡, wif 🟢",kiki muv wif,NA,NA,NA,3
+NA,21424,ButtonsToText,14,260057,0.0-14.0,1,🟤,ME trial,NA,🟣,NA,"[""🟣"",""🟤"",""🟠"",""🟢"",""🟡"",""🔴""]",NA,NA,NA,NA,NA,keam 🟣,blicket,0,6,NA,3
+NA,5869,ButtonsToText,15,265927,0.0-15.0,1,⚫⚫🟠,"ME_vs_OneToOne trial, oneDropped",NA,NA,NA,"[""⚫"",""🟠""]",NA,wif,⚫,enst,🟠,"wif ⚫, enst 🟠",wif tufa,NA,NA,NA,3
+NA,6305,ButtonsToText,16,272234,0.0-16.0,1,🔴,catch trial,wif,🔴,wif 🔴,"[""🔴"",""🟠"",""🟢"",""🔵"",""🟣"",""⚫""]",TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,27186,survey-text,17,299424,0.0-17.0,1,"{""survey"":""I combined some of the dots if there weren't any options to match""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
+NA,7697,survey-multi-choice,18,307123,0.0-18.0,1,"{""effort"":""Moderate effort""}",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,[0],3
+"[{""page_index"":0,""viewing_time"":10805}]",10806,instructions,19,317932,0.0-19.0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,3
