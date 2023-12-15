@@ -9,35 +9,34 @@ format:
 
 ## Introduction
 
-### Choice of Experiment
+### Background
 
-Lake et al. (2019) investigated how humans learn novel concepts and generalize compositionally. To do so, they used a task in which participants must learn mappings between instructions written in a simple pseudo-language and sequences of symbols. I chose to replicate experiment 2 from the study, as that experiment provided insight into three inductive biases that guide human generalizations. This experiment is highly relevant for my work, as I study the computational basis of concept learning and generalization in humans and ML models, and one of my central interests is understanding what inductive biases allow humans to learn from sparse data and generalize systematically.
+Lake et al. (2019) investigated how humans learn novel concepts and generalize compositionally. To do so, they designed a paradigm in which participants learn associations between inputs represented by pseudo-words (e.g., "dax") and output sequences of symbols (represented by colored circles). In experiment 1, Lake and colleagues tested participants' ability to learn novel concepts from little data as well as combine concepts. Results from experiment 1 indicated that certain prior assumptions, also called *inductive biases*, shaped participants' response patterns. Thus, Lake and colleagues designed a second experiment to test the influence of several such biases. 
 
 ### Description of Experiment
 
-The experiment tested the influence of three inductive biases on human generalizations: 
+Experiment 2, replicated in this report, examined three inductive biases hypothesized to influence human generalizations: 
 
-1) Mutual Exclusivity (ME): the tendency to associate a novel name with a novel object rather than an object that is already familiar by a different name. 
+1) Mutual Exclusivity (ME): the tendency to associate a novel name with a novel object rather than an object that is already familiar by a different name (Markman & Wachtel, 1988).
 
-2) One-to-one mappings: the tendency to map a single input symbol to a single output symbol. 
+2) Iconic concatenation: "a preference for maintaining the
+order of the input symbols in the order of the output symbols." (Lake et al., 2019, p.4)
 
-3) Iconic concatenation: the tendency to concatenate output symbols in the order they were provided in the input. 
+3) One-to-one mappings: "the assumption that each input symbol corresponds to exactly one output symbol, and that
+inputs can be translated one-by-one to outputs without applying complex functional transformations." (Lake et al., 2019, p.4)
 
-To study these biases, participants were provided with mappings between instructions and colored circles. They were then provided with a test instruction and asked to answer with its corresponding output sequence of colored circles.
+To study these biases, participants were provided with mappings between inputs (pseudowords) and outputs (colored circles), as well as a test instruction, for which they were asked to answer with its corresponding output sequence of colored circles. 
 
-### Challenges
+### Links
 
-Some of the possible challenges for this project include: Programming the experiment interface and randomizing the word-circle mappings in each trial, and replicating the trial sequence as accurately as possible.
-
-### Links to Repository and Original Paper
-
-[Link to the repository](https://github.com/psych251/lake2019/tree/main)
+[Link to GitHub repository](https://github.com/psych251/lake2019/tree/main)
 
 [Link to original paper](https://github.com/psych251/lake2019/blob/main/original_paper/1901.04587.pdf)
 
+[Link to preregistration](https://osf.io/khv84)
+
 
 ## Methods
-
 
 ### Planned Sample
 
@@ -45,7 +44,7 @@ Given that the original experiment had only 28 participants and the experiment i
 
 ### Materials
 
-Stimuli and instructions followed those of the original paper:
+Stimuli and instructions followed those from Lake et al. (2019):
 
 > "Participants were informed that
 the study investigated how people learn input-output associations, and that they would be asked to learn a set of commands
@@ -57,7 +56,7 @@ trial and were instructed to provide a reasonable guess."
 
 ### Procedure
 
-The procedure followed precisely that of the original paper: 
+The procedure followed precisely that of Lake et al. (2019): 
 
 > "14 independent trials
 that evaluated biases under different circumstances. Each trial
@@ -90,28 +89,36 @@ Whereas in the original study circles could be added to the response array by cl
 Finally, there were also several differences related to data collection: In the original experiment, data was collected using Mechanical Turk and psiTurk, and participants were only recruited from the United States. In this version, data was collected using Prolific, and participants were not screened for eligibility based on country, but based on fluency in English, previous number of submissions and approval rating on Prolific (as detailed above), and reporting no colorblindness.
 
 
-<!-- #### Actual Sample -->
+### Post-Data-Collection Methods Addendum
 
-<!-- Sample size, demographics, data exclusions based on rules spelled out in analysis plan -->
+70 participants submitted responses to the study on Prolific. Participants were recruited based on the screening criteria described above. Eight participants failed at least one attention check, and two did not perform the task. Hence, there were a total of ten participants excluded, yielding a sample size of n=60 to be included in the analysis. 
 
-<!-- #### Differences from pre-data collection methods plan -->
+The exclusion rate was lower than expected: in the original experiment 
+21.4% (6 out of 28) participants were excluded, compared to 14.3% in this experiment.
+Hence, the included sample size of n=60 is greater than 2.5 times the original study's included sample size (which would be n=55). 
 
-<!-- Any differences from what was described as the original plan, or "none". -->
+In addition to the analyses registered in the original plan, an additional exploratory 
+analysis was conducted: the logistic mixed model fit to data from mutual exclusivity
+trials was refit with a narrower definition of ME employed: a response consistent with ME is defined as a single circle of
+a color different from the one associated with the study instructions.  
 
-## Results (Only pilot results so far)
+
+## Results
 
 ### Data preparation
 
 Data preparation following the analysis plan.
 
-```{r, include=TRUE, message=FALSE}
+```{r, echo=TRUE, message=FALSE}
 #### Load Relevant Libraries and Functions
 library(here)
 library(lme4)
 library(tidyverse)
+library(cowplot)
+library(magick)
 
 #### Import data
-df_raw <- read_csv(here("data/pilot/learning-instructions-pilot-anon.csv"))
+df_raw <- read_csv(here("data/learning-instructions-anon.csv"))
 
 #### Data exclusion / filtering
 df_catch = df_raw %>% filter(type == "catch trial") %>% 
@@ -119,7 +126,7 @@ df_catch = df_raw %>% filter(type == "catch trial") %>%
 
 df_proc <- df_raw %>% 
             # exclude participants who failed a catch trial
-            filter(!(pid %in% unique(df_catch$pid))) 
+            filter(!(pid %in% unique(df_catch$pid)))
 
 #### Prepare data for analysis
 
@@ -127,17 +134,24 @@ df_proc <- df_raw %>%
 
 ## Mutual exclusivity trials
 df_ME = df_proc %>% filter(type=="ME trial") %>% mutate(follows_ME = case_when(
-  .$example_color == .$response ~ 0,
+   # when the color given in study instructions (example color) is similar to response,
+   # ME is broken, otherwise response is consistent with ME
+  .$example_color == .$response ~ 0, 
   .$example_color != .$response ~ 1,
   .default = NA),
   follows_ME_simple_definition = case_when(
+    # by the simpler and more strict ME definition (used in exploratory analysis):
+    # if the response is a single circle of a different color than the 
+    # example color, it follows ME, otherwise it breaks ME
     .$example_color != .$response & nchar(.$response) == 1 ~ 1,
     .default = 0
   )) %>% select(c(pid, response, example_color, pool_size, num_counters, follows_ME, follows_ME_simple_definition))  
 
 
 ## iconic concatenation trials
-df_concat = df_proc %>% filter(grepl("concat trial", type)) %>% mutate(follows_iconicConcat = case_when(
+df_concat = df_proc %>% filter(grepl("concat trial", type)) %>% mutate(
+  follows_iconicConcat = case_when(
+  # trial type determines which responses are consistent with iconic concatenation
   (.$type == "simple concat trial" & .$response == paste0(.$example1_color,  .$example2_color)) ~ 1,
     (.$type == "doubleInTest concat trial" & .$response == paste0(.$example2_color, .$example1_color,  .$example1_color)) ~ 1,
   (.$type == "multipleCircles concat trial" & .$response == paste0(.$example1_color, .$example1_color, .$example1_color,  .$example2_color,  .$example2_color)) ~ 1,
@@ -147,9 +161,11 @@ df_concat = df_proc %>% filter(grepl("concat trial", type)) %>% mutate(follows_i
 ## ME vs. one to one trials
 df_ME_vs_OneToOne = df_proc %>% filter(grepl("ME_vs_OneToOne trial", type)) %>%
   mutate(follows_1to1 = case_when(
+  # if response has the same number of circles as inputs, it is consistent with one-to-one
   sapply(strsplit(.$target, " "), length) == nchar(.$response) ~ 1,
   .default = 0)) %>% select( pid, type, target, examples, response, follows_1to1, type)
 ```
+
 
 ### Confirmatory analysis
 
@@ -157,26 +173,30 @@ df_ME_vs_OneToOne = df_proc %>% filter(grepl("ME_vs_OneToOne trial", type)) %>%
 
 ##### Main figure:
 
-```{r, include=TRUE, message=FALSE}
+```{r, echo=TRUE, message=FALSE}
 df_ME_summarized = df_ME %>% group_by(pool_size, num_counters) %>% summarize(percent_follows_ME = mean(follows_ME)*100,
                                                                              percent_se = sd(follows_ME)*100 / length(follows_ME))
 
 group.colors <- c("2" = "#666BFF", "6" = "#F8766D")
 
-ggplot(data = df_ME_summarized, aes(x = num_counters, y = percent_follows_ME, fill = as.factor(pool_size))) +
-  geom_bar(stat = "identity", position = position_dodge(), alpha = 0.75) + xlab("Number of counter examples") + ylab("Mutual exclusivity strength") + labs(fill="Pool size") +  scale_fill_manual(values=group.colors) +  geom_errorbar(aes(ymin=percent_follows_ME-percent_se, ymax=percent_follows_ME+percent_se), width=.2,
-                 position=position_dodge(.9))
+ME_fig = ggplot(data = df_ME_summarized, aes(x = num_counters, y = percent_follows_ME, fill = as.factor(pool_size))) +
+  geom_bar(stat = "identity", position = position_dodge(), alpha = 0.75) + xlab("Number of counter examples") + ylab("Mutual exclusivity strength") + labs(fill="Pool size") +  scale_fill_manual(values=group.colors) +  geom_errorbar(aes(ymin=percent_follows_ME-percent_se, ymax=percent_follows_ME+percent_se), width=.5,
+                 position=position_dodge(.9)) +theme(text = element_text(size=16))
+ggsave(here("figures/ME.png"),ME_fig, units="px", height=1200, width=1700)
 ```
 
-Original figure from Lake et al. (2019):
+Main figure next to corresponding figure from Lake et al. (2019) (figure from original study contained no error bars):
 
-```{r, echo = FALSE, out.width = "500px"}
-knitr::include_graphics(here("writeup/fig4_original_paper.png"))
+```{r, echo = TRUE,message=FALSE, out.height='120%', out.width='100%'}
+p1<- ggdraw() + draw_image(here("figures/ME.png"))
+p2<- ggdraw() + draw_image(here("writeup/fig4_original_paper.png"))
+
+plot_grid(p1, p2)
 ```
 
 ##### Logistic mixed model:
 
-```{r, include=TRUE, message=FALSE}
+```{r, echo=TRUE, message=FALSE}
 model_fit <- glmer(follows_ME ~ pool_size + num_counters + (1 | pid), data = df_ME,  family = binomial)
 summary(model_fit)
 ```
@@ -184,17 +204,19 @@ summary(model_fit)
 
 #### Iconic Concatenation: 
 
-```{r, include=TRUE, message=FALSE}
+```{r, echo=TRUE, message=FALSE}
 df_concat_summarize = df_concat %>%  group_by(pid) %>% summarize(percent_follows_iconicConcat = mean(follows_iconicConcat)*100)
 
 
-ggplot(df_concat, aes(x=follows_iconicConcat, color=type)) +
-  geom_histogram() + xlab("Follows Iconic Concatenation") + ylab("Count") + 
-  scale_color_manual(labels = c("Study:dax⚫,lug🔵.Test: lug dax dax", "Study:dax⚫⚫⚫,lug🔵🔵.Test: dax lug", "Study: dax⚫,lug🔵.Test: dax lug"), values=c("blue", "red", "lightgreen"))
+ggplot(df_concat, aes(x=follows_iconicConcat, fill=type)) +
+  geom_histogram() + xlab("Follows Iconic Concatenation") + ylab("Count") + xlab("Follows Iconic Concatenation") + ylab("Count") + 
+  scale_fill_manual(labels = c("Study:dax,lug.Test: lug dax dax", "Study:dax,lug.Test: dax lug", "Study:dax(3 circles),lug(2 circles).Test: dax lug"), values=c("#666BFF", "#F8766D", "#00BA38")) 
+
 ```
+
 Iconic concatenation strength (across three trials):
 
-```{r}
+```{r, echo=TRUE}
 paste0(mean(df_concat_summarize$percent_follows_iconicConcat), "%")
 ```
 
@@ -202,55 +224,83 @@ Iconic concatenation strength in original paper: 93.9% (across three trials, 62/
 
 #### Mutual Exclusivity vs. One-to-One: 
 
-```{r, include=TRUE, message=FALSE}
-ggplot(df_ME_vs_OneToOne, aes(x=follows_1to1*100, color=type)) +
+```{r, echo=TRUE, message=FALSE}
+ggplot(df_ME_vs_OneToOne, aes(x=follows_1to1*100, fill=type)) +
   geom_histogram() + xlab("Follows 1-to-1") + ylab("Count") + 
-  scale_color_manual(labels = c("Study:dax⚫,lug🟡.Test: dax wif lug", "Study:dax⚫,lug🟡.Test: dax wif", "Study:dax⚫,lug🟡.Test: wif"), values=c("blue", "red", "lightgreen"))
+  scale_fill_manual(labels = c("Study:dax,lug.Test: dax wif lug", "Study:dax,lug.Test: dax wif", "Study:dax,lug.Test: wif"), values=c("#666BFF", "#F8766D", "#00BA38"))
 ```
 
 Mutual exclusivity over one-to-one strength (across three trials):
 
-```{r}
+```{r, echo=TRUE}
 paste0(mean(df_ME_vs_OneToOne$follows_1to1)*100, "%")
 ```
 
 One-to-one over mutual exclusivity strength in original paper: 50% (across three trials, 33/66 responses)
 
 
-### Exploratory analysis: Simplest ME condition (pool size = 2, no counter evidence):
+### Exploratory analysis:
 
-```{r}
+#### Simplest ME condition (pool size = 2, no counter evidence):
+
+```{r, echo=TRUE}
 df_ME_simplest_condition = df_ME %>% filter(pool_size == 2, num_counters == 0)
 ```
 
 Response is single circle of another color (compared to color provided in study instructions):
 
-```{r}
+```{r, echo=TRUE}
 paste0(nrow(df_ME_simplest_condition %>% filter(follows_ME_simple_definition == 1)), "/", nrow(df_ME_simplest_condition)," participants: ", nrow(df_ME_simplest_condition %>% filter(follows_ME_simple_definition == 1))*100/nrow(df_ME_simplest_condition), "%")
 ```
 
 Response is any sequence not similar to the colored circle provided in the study instructions:
 
-```{r}
+```{r, echo=TRUE}
 paste0(nrow(df_ME_simplest_condition %>% filter(follows_ME == 1)), "/", nrow(df_ME_simplest_condition)," participants: ", nrow(df_ME_simplest_condition %>% filter(follows_ME == 1))*100/nrow(df_ME_simplest_condition), "%")
 ```
 
 In original paper: 18/22 (81.8%) and 20/22 (90.9%), respectively.
 
+#### Additional (non-registered) exploratory analysis: applying narrow ME definition to full ME analysis
 
-<!-- ### Exploratory analyses -->
+```{r, echo=TRUE, message=FALSE}
+df_ME_simple_summarized = df_ME %>% group_by(pool_size, num_counters) %>% summarize(percent_follows_ME = mean(follows_ME_simple_definition)*100,
+                                                                             percent_se = sd(follows_ME_simple_definition)*100 / length(follows_ME_simple_definition))
 
-<!-- Any follow-up analyses desired (not required). -->
+group.colors <- c("2" = "#666BFF", "6" = "#F8766D")
 
-<!-- ## Discussion -->
+ggplot(data = df_ME_simple_summarized, aes(x = num_counters, y = percent_follows_ME, fill = as.factor(pool_size))) +
+  geom_bar(stat = "identity", position = position_dodge(), alpha = 0.75) + xlab("Number of counter examples") + ylab("Mutual exclusivity strength") + labs(fill="Pool size") +  scale_fill_manual(values=group.colors) +  geom_errorbar(aes(ymin=percent_follows_ME-percent_se, ymax=percent_follows_ME+percent_se), width=.2,
+                 position=position_dodge(.9))
+```
+Logistic mixed model:
 
-<!-- ### Summary of Replication Attempt -->
+```{r, echo=TRUE, message=FALSE}
+model_fit <- glmer(follows_ME_simple_definition ~ pool_size + num_counters + (1 | pid), data = df_ME,  family = binomial)
+summary(model_fit)
+```
 
-<!-- Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result. -->
+## Discussion
 
-<!-- ### Commentary -->
+### Summary of Replication Attempt
 
-<!-- Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt. None of these need to be long. -->
+**Mutual exclusivity (ME):** The main result only partially replicated, with number of counters being a significant predictor of consistency with ME, but pool size, while trending, was not significant. Additionally, in contrast with the original experiment, in which consistency with ME was very low in certain conditions (e.g., close to 40% in the pool size=6, 2 counter examples condition), in this version, average response consistency with ME was above 70% in all conditions.
+
+The registered exploratory analysis replicated the result from the original experiment,
+such that in the ME trial with pool size = 2 and no counter examples, 80% of responses consisted of a single circle of another color (compared to the color provided in study instructions), and 88.33% of responses consisted of any sequence not similar to the colored circle provided in the study instructions (compared with 81.8% and 90.9% in the original study, respectively). The non-registered exploratory analysis, in which the main ME analysis was run using the narrower definition of ME (single circle of another color compared to the one provided in study instructions), resulted in a similar pattern as the main ME analysis. 
+
+**Iconic concatenation (IC):** Result for IC was precisely replicated, 
+with 93.9% of responses consistent with IC across three trials in both experiments. 
+
+**Mutual exclusivity vs. one-to-one:** Results for ME vs. one-to-one resembled those of the original 
+experiment, with 54.44% of responses following one-to-one over ME, compared to 
+50% in the original experiment. 
+
+### Commentary 
+
+While the main result for ME only partially replicated, the results observed imply that ME may be even more impactful on human responses than Lake et al. (2019) originally thought, as its influence on responses was not significantly reduced by the pool size of possible outputs, and average consistency with ME was above 70% in all conditions. Moreover, results concerning IC, ME vs. 1-to-1, and the registered exploratory analysis of ME replicated the findings of the original experiment. Thus, it appears that Lake et al. (2019)’s hypothesis that ME, IC, and 1-to-1 are three inductive biases influencing how humans perform compositional generalization remains consistent with the data.  
+
+Finally, difference in results for ME trials may stem from the small sample size of the original study (n=22 included in the analysis), which (due to higher noise) could have led to extreme results in the pool size = 6 conditions, thereby impacting the significance of the pool size predictor. 
 
 ## References
 
@@ -263,3 +313,7 @@ In original paper: 18/22 (81.8%) and 20/22 (90.9%), respectively.
 |     & C. Freksa (Eds.), proceedings of the 41st annual conference of the 
 |     cognitive science society (pp. 611–617). Cognitive Science Society. 
 |     Montreal, QB: Cognitive Science Society.
+
+| Markman, E. M., & Wachtel, G. F. (1988). Children’s use of mutual exclusivity 
+|     to constrain the meanings of words. Cognitive Psychology, 20(2), 121–157.
+|     https://doi.org/10.1016/0010-0285(88)90017-5 
